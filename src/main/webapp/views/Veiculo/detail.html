@@ -1,0 +1,37 @@
+<form id="VeiculoForm" name="VeiculoForm" class="form-horizontal">
+    <div ng-show="displayError" class="alert alert-error">
+        <strong>Error!</strong> Something broke. Retry, or cancel and start afresh.
+    </div>
+    <div class="control-group" ng-class="{error: VeiculoForm.placa.$invalid}">
+        <label for="placa" class="control-label">Placa</label>
+        <div id="placaControls" class="controls">
+            <input id="placa" name="placa" type="text" ng-model="veiculo.placa" placeholder="Enter the Veiculo Placa"></input>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: VeiculoForm.codigo.$invalid}">
+        <label for="codigo" class="control-label">Codigo</label>
+        <div id="codigoControls" class="controls">
+            <input id="codigo" name="codigo" type="text" ng-model="veiculo.codigo" placeholder="Enter the Veiculo Codigo"></input>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: VeiculoForm.dtEntrada.$invalid}">
+        <label for="dtEntrada" class="control-label">Dt Entrada</label>
+        <div id="dtEntradaControls" class="controls">
+            <input id="dtEntrada" name="dtEntrada" type="datetime" ng-model="veiculo.dtEntrada" placeholder="Enter the Veiculo Dt Entrada"></input>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: VeiculoForm.ano.$invalid}">
+        <label for="ano" class="control-label">Ano</label>
+        <div id="anoControls" class="controls">
+            <input id="ano" name="ano" type="number" ng-model="veiculo.ano" placeholder="Enter the Veiculo Ano"></input>
+            <span class="help-inline" ng-show="VeiculoForm.ano.$error.number">not a number</span>
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            <button id="saveVeiculo" name="saveVeiculo" class="btn btn-primary" ng-disabled="isClean() || VeiculoForm.$invalid" ng-click="save()"><i class="icon-ok-sign icon-white"></i> Save</button>
+            <button id="cancel" name="cancel" class="btn" ng-click="cancel()"><i class="icon-remove-sign"></i> Cancel</button>
+            <button id="deleteVeiculo" name="deleteVeiculo" class="btn btn-danger" ng-show="veiculo.id" ng-click="remove()"><i class="icon-trash icon-white"></i> Delete</button>
+        </div>
+    <div>
+</form>
